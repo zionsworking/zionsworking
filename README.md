@@ -6,7 +6,7 @@ SOC Analyst by day -- I monitor, detect, and respond to threats across enterpris
 
 ## What I Build
 
-- **[Hermes](https://github.com/zionboggan0/hermes-trading-bot)** -- Autonomous AI trading bot for Kalshi prediction markets. Three independent scanners, two-pass Grok verification, self-improving calibration via Brier scores, GPU-accelerated embeddings, and fractional Kelly sizing. 4,400+ lines of Python, trading real money 24/7.
+- **[Hermes](https://github.com/zionsworking/hermes-trading-bot)** -- Autonomous AI trading bot for Kalshi prediction markets. Three independent scanners, two-pass Grok verification, self-improving calibration via Brier scores, GPU-accelerated embeddings, and fractional Kelly sizing. 4,400+ lines of Python, trading real money 24/7.
 
 - **Perseus** -- Multi-agent AI orchestration platform with 20-agent task routing, multi-LLM integration (Grok, OpenAI, Ollama), Discord command and control, SSH-based infrastructure management, and PostgreSQL analytics. Runs across a two-node Proxmox cluster.
 
@@ -14,9 +14,7 @@ SOC Analyst by day -- I monitor, detect, and respond to threats across enterpris
 
 Two-node Proxmox VE cluster (Dell PowerEdge R410 + GPU compute node with RTX 3060 12GB), 9 LXC containers, WireGuard VPN, Pi-hole DNS, Proxmox Backup Server. Everything self-hosted, everything automated.
 
-## Stack
-
-**Security:** Microsoft Sentinel, Stellar Cyber, SentinelOne, Defender, Securonix
+## Stack 
 
 **Development:** Python, FastAPI, Discord.py, PostgreSQL, SQLite, REST/WebSocket APIs
 
@@ -24,7 +22,6 @@ Two-node Proxmox VE cluster (Dell PowerEdge R410 + GPU compute node with RTX 306
 
 **Infrastructure:** Proxmox VE, LXC, GPU Passthrough, WireGuard, Pi-hole, systemd, Bash
 
-**Cloud:** Azure (AZ-900, AZ-104, SC-200)
 
 ## Certifications
 
