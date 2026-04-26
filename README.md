@@ -12,6 +12,7 @@ I am currently open to full-time roles in security engineering, detection engine
 An open protocol for cryptographic data provenance, recipient attribution, and leak detection. Oversight seals documents to named recipients with hybrid post-quantum encryption, three independent watermark layers, and Sigstore Rekor v2 transparency logging. Python reference implementation plus a Rust canonical port across a nine-crate workspace, with cross-language conformance tests proving bit-identical output.
 
 Recent releases:
+- **Mobile beta** (April 26, 2026): The companion verifier app shipped to TestFlight as `v0.1.11`. Repo at [oversight-protocol/oversight-mobile](https://github.com/oversight-protocol/oversight-mobile). Flutter UI on top of the same Rust crates that power the desktop CLI, embedded via [`flutter_rust_bridge`](https://github.com/fzyzcjy/flutter_rust_bridge), so a manifest that verifies on a laptop verifies the same way on a phone — there is no second implementation to drift. The whole iOS pipeline runs on GitHub-hosted macOS runners (`macos-26` / Xcode 26 / iOS 26 SDK); no local Mac required. Writeup at [oversightprotocol.dev/blog/mobile-beta.html](https://oversightprotocol.dev/blog/mobile-beta.html).
 - **v0.4.7** (April 2026): Registry v1 federation spec hardened against the reference server. Canonicalization algorithm, uniform error envelope, normative endpoint list, and `/evidence` bundle shape all pinned. A 33-check conformance harness at `tests/test_registry_conformance.py` lets any independent operator point at their deployment and claim v1 compatibility. CORS middleware on the live registry so the in-browser inspector can read public endpoints.
 - **v0.4.6**: SIEM export module with schema-stable formatters for Splunk HEC, Microsoft Sentinel Log Analytics, and Elastic Common Schema 8.x, plus a Sentinel HMAC signing helper and a read-only SQLite iterator. Operator guide at [docs/SIEM.md](https://github.com/oversight-protocol/oversight/blob/main/docs/SIEM.md).
 - **v0.4.5**: L3 semantic watermark safety, document-class defaults, `canonical_content_hash` as a dispute anchor, Tkinter GUI starter, and a public threat model at [oversightprotocol.dev/research/threat-model.html](https://oversightprotocol.dev/research/threat-model.html).
@@ -35,6 +36,7 @@ Autonomous offensive security platform for authorized engagements and research. 
 
 ## Current Focus
 
+- Hardening the Oversight mobile verifier: external TestFlight invitations after the iOS 26 SDK migration settles, reproducible mobile builds so anyone can confirm the App Store binary matches the source, and a v2 signer with hardware-backed keys (Secure Enclave on iOS, StrongBox on Android).
 - Shipping Oversight past the public-launch gate: hybrid (post-quantum) in-browser decrypt, an Outlook add-in as the first ecosystem integration, a Rust Axum registry port with migration tooling from the Python reference, and the hardware `KeyProvider` trait (YubiKey, Nitrokey, OnlyKey).
 - Continuing the spec work: `docs/spec/registry-v1.md` is published and hardened; next is an arXiv preprint and a draft IETF Internet-Draft.
 - Bug bounty recon work on authorized programs, with tooling I maintain in private.
@@ -43,6 +45,7 @@ Autonomous offensive security platform for authorized engagements and research. 
 ## Roadmap
 
 **Next 6 months**
+- Oversight mobile v2: signer mode with Secure Enclave / StrongBox-backed keys, F-Droid release, and reproducible builds.
 - Oversight hybrid decrypt in the browser via a wasm build of liboqs.
 - Outlook add-in and one regulated-industry design-partner deployment.
 - Hardware `KeyProvider` trait with `FileKeyProvider` and `PivKeyProvider` implementations.
@@ -56,11 +59,12 @@ Autonomous offensive security platform for authorized engagements and research. 
 
 ## Stack
 
-**Languages:** Python, Rust, TypeScript, JavaScript (WebCrypto), Bash, SQL
+**Languages:** Python, Rust, Dart (Flutter), TypeScript, JavaScript (WebCrypto), Bash, SQL
 **Backend:** FastAPI, Axum, Tokio, PostgreSQL, SQLite, REST and WebSocket APIs, DSSE, JWS, RFC 3161, RFC 6962 Merkle transparency
 **Applied cryptography:** X25519, Ed25519, XChaCha20-Poly1305, HKDF-SHA256, ML-KEM-768 (FIPS 203), ML-DSA-65 (FIPS 204), Sigstore Rekor v2
 **AI / ML:** Grok and xAI Responses API, Anthropic Claude, OpenAI, local Ollama (qwen3, nomic-embed-text), vector search, GPU-accelerated inference
 **Security:** SOC operations, incident response, Microsoft Sentinel, SentinelOne, Splunk HEC and Elastic Common Schema export, threat hunting, detection engineering, authorized offensive tooling
+**Mobile:** Flutter, `flutter_rust_bridge`, iOS (TestFlight, fastlane, App Store Connect API), Android (PKCS12 signing, AAB / APK), CI-only build pipelines on GitHub-hosted macOS runners
 **Infrastructure:** Proxmox VE, LXC, GPU passthrough, WireGuard, Pi-hole, Proxmox Backup Server, systemd, Cloudflare Tunnel, GitHub Pages, GitHub Actions
 
 ## Certifications
